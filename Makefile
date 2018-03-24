@@ -1,4 +1,4 @@
-calc:  	hexc.l hexc.y
-	bison -d hexc.y
-	flex hexc.l
-	gcc -o $@ hexc.tab.c lex.yy.c -ll
+calc:	calc.l calc.y
+	bison -d calc.y
+	flex calc.l
+	cc -o $@ calc.tab.c lex.yy.c -ll
