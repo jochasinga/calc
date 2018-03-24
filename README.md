@@ -4,7 +4,8 @@
 
 - supports only decimal and hexadecimal numbers
 - math operators supported: `+`, `-`, `*`, `/`, `%`, `|`
-- bit-wise operators: `&`, `|`
+- bit-wise operators: `&`, `|`, `~`
+- parentheses
 
 **set up**
 

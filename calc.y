@@ -2,30 +2,33 @@
 #include <stdio.h>
 %}
 
-/* list of tokens */				 
+/* list of tokens */
 %token NUMBER
-%token ADD SUB MUL DIV PER PIP AMP
+%token LP RP
+%token ADD SUB MUL DIV PER PIP AMP TIL
 %token EOL
 
 %%
 
 calclist: /* nothing */
-| calclist exp EOL { printf("= %d\n", $2); }
-;
+ | calclist exp EOL { printf("= %d\n", $2); }
+ ;
 exp: factor
-| exp PIP factor { $$ = $1 | $3; }	
-| exp AMP factor { $$ = $1 & $3; }	
-| exp ADD factor { $$ = $1 + $3; }
-| exp SUB factor { $$ = $1 - $3; }
-;
+ | exp PIP factor { $$ = $1 | $3; }	
+ | exp AMP factor { $$ = $1 & $3; }	
+ | exp ADD factor { $$ = $1 + $3; }
+ | exp SUB factor { $$ = $1 - $3; }
+ ;
 factor: term
-| factor MUL term { $$ = $1 * $3; }
-| factor DIV term { $$ = $1 / $3; }
-| factor PER term { $$ = $1 % $3; }	
-;
+ | factor MUL term { $$ = $1 * $3; }
+ | factor DIV term { $$ = $1 / $3; }
+ | factor PER term { $$ = $1 % $3; }	
+ ;
 term: NUMBER
-| PIP term { $$ = $2 >= 0? $2 : - $2; }
-;
+ | PIP term { $$ = $2 >= 0? $2 : - $2; }
+ | TIL term { $$ = ~ $2; }
+ | LP exp RP { $$ = $2; }	
+ ;
 
 %%
 main(int argc, char **argv)

@@ -1,5 +1,5 @@
 %{
-#include "hexc.tab.h"
+#include "calc.tab.h"
 char *ptr;
 %}
 
@@ -12,6 +12,10 @@ char *ptr;
 "%"          { return PER; }
 "|"          { return PIP; }
 "&"          { return AMP; }
+"~"          { return TIL; }
+"("          { return LP; }
+")"          { return RP; }
+"//".*       { /* ignore comments */ }
 -{0,1}[0-9]+ { yylval = atoi(yytext); return NUMBER; }
 0x[a-f0-9]+  { yylval = strtol(yytext, &ptr, 16); return NUMBER; }
 \n           { return EOL; }
