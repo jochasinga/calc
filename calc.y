@@ -35,6 +35,7 @@ main(int argc, char **argv)
 {
     yyparse();
 }
+
 yyerror(char *s)
 {
     fprintf(stderr, "error: %s\n", s);

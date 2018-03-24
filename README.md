@@ -6,6 +6,7 @@
 - math operators supported: `+`, `-`, `*`, `/`, `%`, `|`
 - bit-wise operators: `&`, `|`, `~`
 - parentheses
+- comment starts with `#`
 
 **set up**
 
