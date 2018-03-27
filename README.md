@@ -4,8 +4,8 @@
 
 - supports only decimal and hexadecimal numbers
 - math operators supported: `+`, `-`, `*`, `/`, `%`, `|`
-- bit-wise operators: `&`, `|`, `~`
-- parentheses
+- bit-wise operators: `&`, `|`, `~`, `^`
+- parentheses supported
 - comment starts with `#`
 
 **set up**

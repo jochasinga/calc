@@ -12,10 +12,11 @@ char *ptr;
 "%"          { return PER; }
 "|"          { return PIP; }
 "&"          { return AMP; }
+"^"          { return XOR; }
 "~"          { return TIL; }
 "("          { return LP; }
 ")"          { return RP; }
-#.*\n        { /* ignore comment */ }
+"#".*\n      { /* ignore comment */ }
 -{0,1}[0-9]+ { yylval = atoi(yytext); return NUMBER; }
 0x[a-f0-9]+  { yylval = strtol(yytext, &ptr, 16); return NUMBER; }
 \n           { return EOL; }

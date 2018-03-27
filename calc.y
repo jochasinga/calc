@@ -5,7 +5,7 @@
 /* list of tokens */
 %token NUMBER
 %token LP RP
-%token ADD SUB MUL DIV PER PIP AMP TIL
+%token ADD SUB MUL DIV PER PIP AMP TIL XOR
 %token EOL
 
 %%
@@ -15,7 +15,8 @@ calclist: /* nothing */
  ;
 exp: factor
  | exp PIP factor { $$ = $1 | $3; }	
- | exp AMP factor { $$ = $1 & $3; }	
+ | exp AMP factor { $$ = $1 & $3; }
+ | exp XOR factor { $$ = $1 ^ $3; }	
  | exp ADD factor { $$ = $1 + $3; }
  | exp SUB factor { $$ = $1 - $3; }
  ;
